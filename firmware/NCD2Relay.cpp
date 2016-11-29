@@ -27,13 +27,13 @@ void NCD2Relay::setAddress(int a0, int a1, int a2){
     Wire.beginTransmission(address);
     //Set all channels to outputs
     Wire.write(0x00);
-    Wire.write(0xFC);
+    Wire.write(0x7C);
     //Determine if device is present at that address
     byte status = Wire.endTransmission();
 
     Wire.beginTransmission(address);
     Wire.write(0x06);
-    Wire.write(0xFC);
+    Wire.write(0x7C);
     status = Wire.endTransmission();
     if(status != 0){
         if(retrys < 3){
